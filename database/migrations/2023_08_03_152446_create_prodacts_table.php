@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('customer');
-            $table->integer('order by');
+            $table->integer('order_by')->default(null);
             $table->date('deadline');
             $table->string('manager');
             $table->timestamps();

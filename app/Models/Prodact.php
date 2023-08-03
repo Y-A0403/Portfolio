@@ -12,7 +12,7 @@ class Prodact extends Model
     protected $fillable = [
         'name',
         'customer',
-        'order by',
+        'order_by',
         'deadline',
         'manager',
     ];
