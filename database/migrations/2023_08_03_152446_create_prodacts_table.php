@@ -18,6 +18,8 @@ return new class extends Migration
             $table->integer('order_by')->default(null);
             $table->date('deadline');
             $table->string('manager');
+            $table->boolean('is_selling')->default(true);
+            $table->string('memo')->nullable();
             $table->timestamps();
         });
     }

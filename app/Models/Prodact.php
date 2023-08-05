@@ -15,5 +15,19 @@ class Prodact extends Model
         'order_by',
         'deadline',
         'manager',
+        'is_selling',
+        'memo',
     ];
+
+    public function scopeSearchProdacts($query, $input = null)
+    {
+        if(!empty($input)){
+            if(Prodact::where('name', 'like', $input .'%')
+            ->exists())
+            {
+                return $query->where('name', 'like', $input .'%');
+            }
+        }
+
+    }
 }

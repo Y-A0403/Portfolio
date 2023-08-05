@@ -6,7 +6,6 @@ use App\Http\Requests\StoreProdactRequest;
 use App\Http\Requests\UpdateProdactRequest;
 use App\Models\Prodact;
 use Inertia\Inertia;
-use Illuminate\Http\Request;
 
 
 class ProdactController extends Controller
@@ -14,16 +13,13 @@ class ProdactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $prodacts = Prodact::searchProdacts($request->search)
-        ->select('id','name','order_by','deadline','is_selling')
-        ->get();
-
-        // dd($prodacts);
+        
 
         return Inertia::render('Prodacts/Index',[
-            'prodacts' => $prodacts
+            'prodacts' => Prodact::select('id','name','order_by','deadline','is_selling')
+            ->get()
         ]);
     }
 

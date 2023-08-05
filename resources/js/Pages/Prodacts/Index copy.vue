@@ -2,19 +2,10 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
 import FlashMessage from '@/Components/FlashMessage.vue'
-import { ref } from 'vue'
-import { Inertia } from '@inertiajs/inertia';
 
 defineProps({
   prodacts: Array
 })
-
-const search = ref('')
-
-const searchProdacts = () => {
-  Inertia.get(route('prodacts.index',{search: search.value }))
-}
-
 </script>
 
 <template>
@@ -33,10 +24,6 @@ const searchProdacts = () => {
                         <div class="container px-5 py-8 mx-auto">
                           <FlashMessage />
                           <div class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto">
-                            <div>
-                              <input type="text" name="search" v-model="search">
-                              <button class="bg-blue-300 text-white py-2 px-2" @click="searchProdacts">検索</button>
-                              </div>
                             <Link as="button" :href="route('prodacts.create')" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">製品登録</Link>
                           </div>
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
@@ -45,27 +32,22 @@ const searchProdacts = () => {
                                 <tr>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Id</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">製品名</th>
+                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">客先名</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">注文数</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">納期日</th>
-                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">ステータス</th>
+                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">担当者</th>
                                   <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <!-- v-forの時は:key=をつける決まり -->
                                 <tr v-for="prodact in prodacts" :key="prodact.id">
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">
-                                    <Link class="text-purple-400" :href="route('prodacts.show', {prodact: prodact.id})">
-                                    {{ prodact.id }}
-                                    </Link>
-                                  </td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.id }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.name }}</td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.customer }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.order_by }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.deadline }}</td>
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">
-                                  <span v-if="prodact.is_selling === 1">未完成</span>
-                                  <span v-if="prodact.is_selling === 0">完成</span>  
-                                  </td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.manager }}</td>
                                 </tr>
                                 
                               </tbody>
