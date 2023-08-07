@@ -64,7 +64,7 @@ const searchProdacts = () => {
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.deadline }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">
                                   <span v-if="prodact.is_selling === 1">未完成</span>
-                                  <span v-if="prodact.is_selling === 0">完成</span>  
+                                  <span v-if="prodact.is_selling === 0">完成 出荷待ち</span>  
                                   </td>
                                 </tr>
                                 

@@ -92,7 +92,7 @@ const updateProdact = id => {
                                   <input type="radio" id="is_selling" name="is_selling" v-model="form.is_selling" value="1" >
                                   <lavel class="ml-1 mr-4">未完成</lavel>
                                   <input type="radio" id="is_selling" name="is_selling" v-model="form.is_selling" value="0" >
-                                  <lavel class="ml-1 mr-4">完成</lavel>
+                                  <lavel class="ml-1 mr-4">完成 出荷待ち</lavel>
                                 </div>
                               </div>
 
