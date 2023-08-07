@@ -12,17 +12,17 @@ defineProps({
 const search = ref('')
 
 const searchProdacts = () => {
-  Inertia.get(route('prodacts.index',{search: search.value }))
+  Inertia.get(route('managements.index',{search: search.value }))
 }
 
 </script>
 
 <template>
-    <Head title="注残一覧" />
+    <Head title="注残管理" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">注残一覧</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">注残管理</h2>
         </template>
 
         <div class="py-12">
@@ -37,7 +37,7 @@ const searchProdacts = () => {
                               <input type="text" name="search" v-model="search">
                               <button class="bg-blue-300 text-white py-2 px-2" @click="searchProdacts">検索</button>
                               </div>
-                           
+                            <Link as="button" :href="route('managements.create')" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">製品登録</Link>
                           </div>
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                             <table class="table-auto w-full text-left whitespace-no-wrap">
@@ -55,7 +55,7 @@ const searchProdacts = () => {
                                 <!-- v-forの時は:key=をつける決まり -->
                                 <tr v-for="prodact in prodacts" :key="prodact.id">
                                   <td class="border-b-2 border-gray-200 px-4 py-3">
-                                    <Link class="text-purple-400" :href="route('prodacts.show', {prodact: prodact.id})">
+                                    <Link class="text-purple-400" :href="route('managements.show', {management: prodact.id})">
                                     {{ prodact.id }}
                                     </Link>
                                   </td>

@@ -35,6 +35,9 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('prodacts.index')" :active="route().current('prodacts.index')">
                                     注残一覧
                                 </NavLink>
+                                <NavLink :href="route('managements.index')" :active="route().current('managements.index')">
+                                    注残管理
+                                </NavLink>
                             </div>
                         </div>
 
@@ -121,6 +124,10 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink :href="route('prodacts.index')" :active="route().current('prodacts.index')">
                             注残一覧
                         </ResponsiveNavLink>
+                        <ResponsiveNavLink :href="route('managements.index')" :active="route().current('managements.index')">
+                            注残管理
+                        </ResponsiveNavLink>
+                        
                     </div>
 
                     <!-- Responsive Settings Options -->

@@ -6,6 +6,11 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 use App\Http\Controllers\InrtiaTestController;
 use App\Http\Controllers\ProdactController;
+use App\Http\Controllers\ManagementController;
+
+
+Route::resource('managements', ManagementController::class) 
+->middleware(['auth', 'verified']);
 
 Route::resource('prodacts', ProdactController::class) 
 ->middleware(['auth', 'verified']);
