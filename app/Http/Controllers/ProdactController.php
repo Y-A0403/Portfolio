@@ -20,7 +20,11 @@ class ProdactController extends Controller
         ->select('id','name','order_by','deadline','is_selling')
         ->get();
 
-        // dd($prodacts);
+        // $pagiprodacts = Prodact::searchProdacts($request->search)
+        // ->select('id','name','order_by','deadline','is_selling')
+        // ->paginate(50);
+
+        // dd($prodacts,$pagiprodacts);
 
         return Inertia::render('Prodacts/Index',[
             'prodacts' => $prodacts
@@ -30,33 +34,33 @@ class ProdactController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return Inertia::render('Prodacts/Create');
-    }
+    // public function create()
+    // {
+    //     return Inertia::render('Prodacts/Create');
+    // }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProdactRequest $request)
-    {
-        // dd($request->all());
-        Prodact::create([
-            'name' => $request->name,
-            'customer' => $request->customer,
-            'order_by' => $request->order_by,
-            'deadline' => $request->deadline,
-            'manager' => $request->manager,
-            'memo'    => $request->memo,
-        ]);
+    // public function store(StoreProdactRequest $request)
+    // {
+    //     // // dd($request->all());
+    //     // Prodact::create([
+    //     //     'name' => $request->name,
+    //     //     'customer' => $request->customer,
+    //     //     'order_by' => $request->order_by,
+    //     //     'deadline' => $request->deadline,
+    //     //     'manager' => $request->manager,
+    //     //     'memo'    => $request->memo,
+    //     // ]);
         
 
-        return to_route('prodacts.index')
-        ->with([
-            'message' => '登録しました。',
-            'status' => 'success'
-        ]);
-    }
+    //     return to_route('prodacts.index')
+    //     ->with([
+    //         'message' => '登録しました。',
+    //         'status' => 'success'
+    //     ]);
+    // }
 
     /**
      * Display the specified resource.

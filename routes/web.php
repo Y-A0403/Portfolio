@@ -7,10 +7,13 @@ use Inertia\Inertia;
 use App\Http\Controllers\InrtiaTestController;
 use App\Http\Controllers\ProdactController;
 use App\Http\Controllers\ManagementController;
+use App\Http\Controllers\NoticeController;
 
+Route::get('notices',[NoticeController::class,'index'])
+->name('notices.index')->middleware(['auth', 'verified']);
 
 Route::resource('managements', ManagementController::class) 
-->middleware(['auth', 'verified']);
+->middleware(['admin', 'verified']);
 
 Route::resource('prodacts', ProdactController::class) 
 ->middleware(['auth', 'verified']);
