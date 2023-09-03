@@ -18,7 +18,7 @@ class ManagementController extends Controller
     {
         $prodacts = Prodact::searchProdacts($request->search)
         ->select('id','name','order_by','deadline','is_selling')
-        ->paginate(50);
+        ->paginate(20);
 
         // dd($prodacts);
 

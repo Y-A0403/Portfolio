@@ -14,6 +14,10 @@ class NoticeController extends Controller
 
         $records = Prodact::where('is_selling','1')->where('deadline', '<=', $oneWeekFromNow)->get();
 
+        // $overs = Prodact::where('is_selling','1')->where('deadline', '<=', Carbon::now())->get();
+
+        
+        
         // dd($records);
 
 

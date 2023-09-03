@@ -1,12 +1,13 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import FlashMessage from '@/Components/FlashMessage.vue'
-import { ref } from 'vue'
+import FlashMessage from '@/Components/FlashMessage.vue';
+import { ref } from 'vue';
 import { Inertia } from '@inertiajs/inertia';
+import Pagination from '@/Components/Pagination.vue';
 
 defineProps({
-  prodacts: Array
+  prodacts: Object
 })
 
 const search = ref('')
@@ -53,7 +54,7 @@ const searchProdacts = () => {
                               </thead>
                               <tbody>
                                 <!-- v-forの時は:key=をつける決まり -->
-                                <tr v-for="prodact in prodacts" :key="prodact.id">
+                                <tr v-for="prodact in prodacts.data" :key="prodact.id">
                                   <td class="border-b-2 border-gray-200 px-4 py-3">
                                     <Link class="text-purple-400" :href="route('managements.show', {management: prodact.id})">
                                     {{ prodact.id }}
@@ -73,6 +74,7 @@ const searchProdacts = () => {
                           </div>
                          
                         </div>
+                        <Pagination class="mt-6" :links="prodacts.links"></Pagination>
                       </section>
                     </div>
                 </div>

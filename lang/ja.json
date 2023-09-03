@@ -137,5 +137,7 @@
   "per page": "毎ページ",
   "results": "件",
   "to": "から",
-  "Showing": "表示中："
+  "Showing": "表示中：",
+  "Once your account is deleted, all of its resources and data will be permanently deleted. Before deletingyour account, please download any data or information that you wish to retain.": "アカウントが削除されると、そのリソースとデータはすべて完全に削除されます。削除する前にあなたのアカウントに保存したいデータや情報をダウンロードしてください。",
+  "Delete": "削除"
 }

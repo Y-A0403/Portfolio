@@ -10,17 +10,43 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Inertia\Inertia;
 use Inertia\Response;
+use App\Models\User;
 
 class ProfileController extends Controller
 {
     /**
      * Display the user's profile form.
      */
+
+    // public function index(){
+
+    //     $user = auth()->user();
+
+    //     dd($user);
+        
+    //     return Inertia::render('Profile.Index');
+    // }
+
+
+
     public function edit(Request $request): Response
-    {
+    {  
+    
+            // $auth = Auth::user();
+            // $name = Auth::user()->name;
+            $user = $request->user()->first();
+            // dd($name);
+
         return Inertia::render('Profile/Edit', [
+            'admin' => Auth::user() && Auth::user()->role === 'admin',
+            'auth' => Auth::user(),
+            // 'user' => $user,
+            // 'auth' => $auth,
+            // 'name' => $name,
+            // 'name' => $user->name,
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
+
         ]);
     }
 

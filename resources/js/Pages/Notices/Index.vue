@@ -1,9 +1,9 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
-import FlashMessage from '@/Components/FlashMessage.vue'
-import { ref } from 'vue'
-import { Inertia } from '@inertiajs/inertia';
+// import FlashMessage from '@/Components/FlashMessage.vue'
+// import { ref } from 'vue'
+// import { Inertia } from '@inertiajs/inertia';
 
 defineProps({
   records: Array
@@ -40,6 +40,10 @@ defineProps({
                             <Link as="button" :href="route('managements.create')" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">製品登録</Link>
                           </div> -->
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
+                            <template v-if="records.length > 0" >
+                              <p class="text-red-500 text-center py-4">
+                                納期日が近いまたは過ぎています。確認してください。
+                              </p>
                             <table class="table-auto w-full text-left whitespace-no-wrap">
                               <thead>
                                 <tr>
@@ -71,6 +75,10 @@ defineProps({
                                 
                               </tbody>
                             </table>
+                          </template>
+                          <template v-else>
+                            <p class="text-blue-500 text-center py-4">現在お知らせはありません</p>
+                          </template>
                           </div>
                          
                         </div>

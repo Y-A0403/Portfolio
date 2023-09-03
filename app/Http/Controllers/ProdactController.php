@@ -18,7 +18,7 @@ class ProdactController extends Controller
     {
         $prodacts = Prodact::searchProdacts($request->search)
         ->select('id','name','order_by','deadline','is_selling')
-        ->get();
+        ->paginate(20);
 
         // $pagiprodacts = Prodact::searchProdacts($request->search)
         // ->select('id','name','order_by','deadline','is_selling')
