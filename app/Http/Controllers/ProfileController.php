@@ -31,24 +31,16 @@ class ProfileController extends Controller
 
     public function edit(Request $request): Response
     {  
-    
-            // $auth = Auth::user();
-            // $name = Auth::user()->name;
-            $user = $request->user()->first();
-            // dd($name);
 
         return Inertia::render('Profile/Edit', [
-            'admin' => Auth::user() && Auth::user()->role === 'admin',
-            'auth' => Auth::user(),
-            // 'user' => $user,
-            // 'auth' => $auth,
-            // 'name' => $name,
-            // 'name' => $user->name,
+            
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
 
         ]);
     }
+
+    
 
     /**
      * Update the user's profile information.
@@ -62,6 +54,8 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
+
+        dd($request);
 
         return Redirect::route('profile.edit');
     }

@@ -1,6 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
-import { Head, Link } from '@inertiajs/inertia-vue3';
+import { Head, Link, usePage } from '@inertiajs/inertia-vue3';
 // import FlashMessage from '@/Components/FlashMessage.vue'
 import { ref } from 'vue'
 import { Inertia } from '@inertiajs/inertia';
@@ -9,6 +9,9 @@ import Pagination from '@/Components/Pagination.vue'
 defineProps({
   prodacts: Object
 })
+
+const page = usePage();
+console.log(page.props.value.auth);
 
 const search = ref('')
 

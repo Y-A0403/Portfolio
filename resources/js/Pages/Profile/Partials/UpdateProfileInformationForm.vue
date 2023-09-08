@@ -11,13 +11,6 @@ import { stringify } from 'postcss';
 
 const s = defineProps({
 
-    admin: Object,
-
-    auth: Object,
-
-    name: Object,
-
-    user: Object,
     
 
     mustVerifyEmail: {
@@ -30,13 +23,13 @@ const s = defineProps({
 
 // console.log(s.auth);
 const page = usePage()
+console.log(page.props.value.auth.user);
+const user = computed(() => page.props.value.auth.user)
 
-const user = computed(() => page.props.auth)
-console.log(user);
 
 const form = useForm({
-    name: user?.name || '',
-    email: user?.email || '',
+    name: page.props.value.auth.user?.name || '',
+    email: page.props.value.auth.user?.email || '',
 });
 </script>
 
@@ -67,11 +60,11 @@ const form = useForm({
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
-            <div>
-    <p>Logged in as: {{ user }}</p>
-    <!-- <p>Role: {{ userRole }}</p> -->
-    <!-- 他の情報の表示 -->
-  </div>
+            <!-- <div>
+    <p>Logged in as: {{ user.name }}</p>
+    <p>Role: {{ userRole }}</p>
+    他の情報の表示
+  </div> -->
 
             <div>
                 <InputLabel for="email" :value="$t('Email')" />

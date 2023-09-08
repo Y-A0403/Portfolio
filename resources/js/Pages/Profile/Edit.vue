@@ -4,15 +4,10 @@ import DeleteUserForm from './Partials/DeleteUserForm.vue';
 import UpdatePasswordForm from './Partials/UpdatePasswordForm.vue';
 import UpdateProfileInformationForm from './Partials/UpdateProfileInformationForm.vue';
 import { Head } from '@inertiajs/vue3';
+import { Link, useForm, usePage } from '@inertiajs/inertia-vue3';
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue';
 
 const c = defineProps({
-
-    auth: Object,
-
-    admin: Object,
-
-    user: Object,
 
     mustVerifyEmail: {
         type: Boolean,
@@ -22,6 +17,8 @@ const c = defineProps({
     },
 });
 // console.log(c.auth);
+const page = usePage()
+console.log(page.props.value);
 </script>
 
 <template>
@@ -36,6 +33,9 @@ const c = defineProps({
             <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
                     <UpdateProfileInformationForm
+                        :admin="admin"
+                        :user="user"
+                        :auth="auth" 
                         :must-verify-email="mustVerifyEmail"
                         :status="status"
                         class="max-w-xl"
@@ -43,11 +43,15 @@ const c = defineProps({
                 </div>
 
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    <UpdatePasswordForm class="max-w-xl" />
+                    <UpdatePasswordForm 
+                    :admin="admin"
+                    class="max-w-xl" />
                 </div>
 
                 <div class="p-4 sm:p-8 bg-white shadow sm:rounded-lg">
-                    <DeleteUserForm class="max-w-xl" />
+                    <DeleteUserForm 
+                    :admin="admin"
+                    class="max-w-xl" />
                 </div>
             </div>
         </div>

@@ -6,28 +6,24 @@ import DropdownLink from '@/Components/DropdownLink.vue';
 import NavLink from '@/Components/NavLink.vue';
 import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
-import { onMounted } from 'vue';
+import { usePage } from '@inertiajs/inertia-vue3';
 import { stringify } from 'postcss';
 
+const page = usePage();
+
 const props = defineProps({
-    admin: Object,
+    auth: Object,
+    admin: Boolean,
     name: String,
     email: String
+
+
 })
 
-// onMounted(() => {
-//   console.log(props.admin)
-// })
 
-
+console.log(page.props.value.auth);
 
 const showingNavigationDropdown = ref(false);
-
-// defineProps({
-//     admin: Array
-// })
-
-// console.log(admin);
 
 </script>
 
@@ -43,7 +39,7 @@ const showingNavigationDropdown = ref(false);
                             <div class="shrink-0 flex items-center">
                                 <Link :href="route('dashboard')">
                                     <ApplicationLogo
-                                        class="block h-9 w-auto fill-current text-gray-800"
+                                        class="block w-24"
                                     />
                                 </Link>
                             </div>
@@ -56,7 +52,7 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('prodacts.index')" :active="route().current('prodacts.index')">
                                     注残一覧
                                 </NavLink>
-                                <NavLink v-if="$page.props.auth.admin" :href="route('managements.index')" :active="route().current('managements.index')">
+                                <NavLink v-if="page.props.value.auth.admin " :href="route('managements.index')" :active="route().current('managements.index')">
                                     注残管理
                                 </NavLink>
                                 <NavLink :href="route('notices.index')" :active="route().current('notices.index')">
@@ -149,7 +145,7 @@ const showingNavigationDropdown = ref(false);
                         <ResponsiveNavLink :href="route('prodacts.index')" :active="route().current('prodacts.index')">
                             注残一覧
                         </ResponsiveNavLink>
-                        <ResponsiveNavLink v-if="$page.props.auth.admin" :href="route('managements.index')" :active="route().current('managements.index')">
+                        <ResponsiveNavLink v-if="page.props.value.auth.admin" :href="route('managements.index')" :active="route().current('managements.index')">
                             注残管理
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('notices.index')" :active="route().current('notices.index')">
