@@ -6,8 +6,6 @@ import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/inertia-vue3';
 import { computed } from 'vue';
 
-
-
 const s = defineProps({
 
     mustVerifyEmail: {
@@ -21,7 +19,6 @@ const s = defineProps({
 const page = usePage()
 
 const user = computed(() => page.props.value.auth.user)
-
 
 const form = useForm({
     name: page.props.value.auth.user?.name || '',

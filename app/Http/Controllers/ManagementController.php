@@ -46,13 +46,13 @@ class ManagementController extends Controller
             'deadline' => $request->deadline,
             'manager' => $request->manager,
             'memo'    => $request->memo,
-        ]);
+                       ]);
 
-        return to_route('managements.index')
+    return to_route('managements.index')
         ->with([
             'message' => '登録しました。',
             'status' => 'success'
-        ]);
+              ]);
     }
 
     /**
@@ -63,17 +63,17 @@ class ManagementController extends Controller
         $data = Prodact::where('id',$id)->first();
 
         return Inertia::render('Managements/Show',['prodact' => $data]);
-           }
+    }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
-         $data = Prodact::where('id',$id)->first();
+        $data = Prodact::where('id',$id)->first();
 
-         return Inertia::render('Managements/edit',['prodact' => $data]);
-             }
+        return Inertia::render('Managements/edit',['prodact' => $data]);
+    }
 
     /**
      * Update the specified resource in storage.
@@ -91,10 +91,10 @@ class ManagementController extends Controller
         $management->save();
 
         return to_route('managements.index')
-        ->with([
+     ->with([
             'message' => '更新しました。',
             'status' => 'success'
-        ]);
+           ]);
     }
 
     /**
@@ -105,9 +105,9 @@ class ManagementController extends Controller
         $management->delete();
 
         return to_route('managements.index')
-        ->with([
+    ->with([
             'message' => '削除しました。',
             'status' => 'denger'
-        ]);
+          ]);
     }
 }

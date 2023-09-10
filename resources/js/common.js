@@ -3,7 +3,5 @@ const nl2br = (str) => {
   res = res.replace(/(\n|\r)/g, "<br>"); 
   return res;
   }
-
-
-
   export { nl2br }
+  

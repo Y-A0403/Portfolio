@@ -23,6 +23,6 @@ class UpdateProdactRequest extends FormRequest
     {
         return [
             //
-        ];
+               ];
     }
 }

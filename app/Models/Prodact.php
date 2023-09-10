@@ -21,7 +21,8 @@ class Prodact extends Model
 
     public function scopeSearchProdacts($query, $input = null)
     {
-        if(!empty($input)){
+        if(!empty($input))
+        {
             if(Prodact::where('name', 'like', $input .'%')
             ->exists())
             {

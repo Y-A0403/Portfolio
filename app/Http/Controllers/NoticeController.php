@@ -9,7 +9,8 @@ use Carbon\Carbon;
 
 class NoticeController extends Controller
 {
-    public function index(){
+    public function index()
+    {
         // 現在から一週間後の日付
         $oneWeekFromNow = Carbon::now()->addWeek();
        

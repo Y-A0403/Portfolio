@@ -10,8 +10,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
 
-
-
 class ProdactController extends Controller
 {
     /**
@@ -23,14 +21,16 @@ class ProdactController extends Controller
         ->select('id','name','order_by','deadline','is_selling')
         ->paginate(20);
 
-        return Inertia::render('Prodacts/Index',[
+        return Inertia::render('Prodacts/Index',
+        [
             'prodacts' => $prodacts
         ]);
     }
-    
+
     public function show(Prodact $prodact)
     {
-        return Inertia::render('Prodacts/Show',[
+        return Inertia::render('Prodacts/Show',
+        [
             'prodact' => $prodact
         ]);
     }

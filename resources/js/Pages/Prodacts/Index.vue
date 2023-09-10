@@ -15,8 +15,6 @@ console.log(page.props.value.auth);
 
 const search = ref('')
 
-
-
 const searchProdacts = () => {
   Inertia.get(route('prodacts.index',{search: search.value }))
 }

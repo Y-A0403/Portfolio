@@ -20,11 +20,13 @@ const updatePassword = () => {
         preserveScroll: true,
         onSuccess: () => form.reset(),
         onError: () => {
-            if (form.errors.password) {
+            if (form.errors.password) 
+            {
                 form.reset('password', 'password_confirmation');
                 passwordInput.value.focus();
             }
-            if (form.errors.current_password) {
+            if (form.errors.current_password) 
+            {
                 form.reset('current_password');
                 currentPasswordInput.value.focus();
             }

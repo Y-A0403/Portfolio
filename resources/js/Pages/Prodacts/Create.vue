@@ -14,11 +14,10 @@ const form = reactive({
   deadline: null,
   manager: null,
   memo: null
-
 })
 
 const storeProdact = () => {
-  Inertia.post('/managements',form)
+  Inertia.post('/prodacts',form)
 }
 </script>
 

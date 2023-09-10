@@ -28,6 +28,6 @@ class UpdateManagementRequest extends FormRequest
             'deadline' => ['required'],
             'manager' => ['required'],
             'is_selling' => ['required','boolean']
-        ];
+              ];
     }
 }   

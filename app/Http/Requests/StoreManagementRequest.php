@@ -13,7 +13,6 @@ class StoreManagementRequest extends FormRequest
     {
         return true;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -27,7 +26,6 @@ class StoreManagementRequest extends FormRequest
             'order_by' => ['required'],
             'deadline' => ['required'],
             'manager' => ['required'],
-
-        ];
+               ];
     }
 }
