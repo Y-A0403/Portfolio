@@ -15,13 +15,8 @@ const props = defineProps({
     auth: Object,
     admin: Boolean,
     name: String,
-    email: String
-
-
+    email: String,
 })
-
-
-console.log(page.props.value.auth);
 
 const showingNavigationDropdown = ref(false);
 
@@ -46,9 +41,6 @@ const showingNavigationDropdown = ref(false);
 
                             <!-- Navigation Links -->
                             <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <!-- <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink> -->
                                 <NavLink :href="route('prodacts.index')" :active="route().current('prodacts.index')">
                                     注残一覧
                                 </NavLink>
@@ -58,7 +50,6 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink :href="route('notices.index')" :active="route().current('notices.index')">
                                     お知らせ
                                 </NavLink>
-
                             </div>
                         </div>
 
@@ -139,9 +130,6 @@ const showingNavigationDropdown = ref(false);
                     class="sm:hidden"
                 >
                     <div class="pt-2 pb-3 space-y-1">
-                        <!-- <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
-                        </ResponsiveNavLink> -->
                         <ResponsiveNavLink :href="route('prodacts.index')" :active="route().current('prodacts.index')">
                             注残一覧
                         </ResponsiveNavLink>

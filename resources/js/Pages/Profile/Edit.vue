@@ -16,9 +16,8 @@ const c = defineProps({
         type: String,
     },
 });
-// console.log(c.auth);
 const page = usePage()
-console.log(page.props.value);
+
 </script>
 
 <template>

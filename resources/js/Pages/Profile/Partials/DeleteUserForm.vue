@@ -8,11 +8,6 @@ import TextInput from '@/Components/TextInput.vue';
 import { useForm } from '@inertiajs/vue3';
 import { nextTick, ref } from 'vue';
 
-defineProps({
-
-admin: Object,
-});
-
 const confirmingUserDeletion = ref(false);
 const passwordInput = ref(null);
 

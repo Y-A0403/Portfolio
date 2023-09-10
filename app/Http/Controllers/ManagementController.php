@@ -20,8 +20,6 @@ class ManagementController extends Controller
         ->select('id','name','order_by','deadline','is_selling')
         ->paginate(20);
 
-        // dd($prodacts);
-
         return Inertia::render('Managements/Index',[
             'prodacts' => $prodacts
         ]);
@@ -55,8 +53,6 @@ class ManagementController extends Controller
             'message' => '登録しました。',
             'status' => 'success'
         ]);
-
-
     }
 
     /**
@@ -64,27 +60,20 @@ class ManagementController extends Controller
      */
     public function show($id)
     {
-
-        // dd($id);
         $data = Prodact::where('id',$id)->first();
 
-        // dd($data);
         return Inertia::render('Managements/Show',['prodact' => $data]);
-           
-    }
+           }
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit($id)
     {
-         // dd($id);
          $data = Prodact::where('id',$id)->first();
 
-         // dd($data);
          return Inertia::render('Managements/edit',['prodact' => $data]);
-            
-    }
+             }
 
     /**
      * Update the specified resource in storage.
@@ -92,7 +81,6 @@ class ManagementController extends Controller
     // Modelsでprodactsテーブルに接続するようにしてるから繋がる
     public function update(UpdateManagementRequest $request, Management $management)
     {
-        // dd($management->name, $request->name);
         $management->name = $request->name;
         $management->customer = $request->customer;
         $management->order_by = $request->order_by;
@@ -107,7 +95,6 @@ class ManagementController extends Controller
             'message' => '更新しました。',
             'status' => 'success'
         ]);
-
     }
 
     /**
@@ -122,6 +109,5 @@ class ManagementController extends Controller
             'message' => '削除しました。',
             'status' => 'denger'
         ]);
-
     }
 }

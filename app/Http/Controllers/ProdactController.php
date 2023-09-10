@@ -23,22 +23,13 @@ class ProdactController extends Controller
         ->select('id','name','order_by','deadline','is_selling')
         ->paginate(20);
 
-        // $pagiprodacts = Prodact::searchProdacts($request->search)
-        // ->select('id','name','order_by','deadline','is_selling')
-        // ->paginate(50);
-
-        // dd($prodacts,$pagiprodacts);
-
         return Inertia::render('Prodacts/Index',[
             'prodacts' => $prodacts
-            
         ]);
     }
-
     
     public function show(Prodact $prodact)
     {
-        // dd($prodact);
         return Inertia::render('Prodacts/Show',[
             'prodact' => $prodact
         ]);

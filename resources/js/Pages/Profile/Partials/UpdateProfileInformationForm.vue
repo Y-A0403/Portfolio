@@ -5,13 +5,10 @@ import PrimaryButton from '@/Components/PrimaryButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import { Link, useForm, usePage } from '@inertiajs/inertia-vue3';
 import { computed } from 'vue';
-import { stringify } from 'postcss';
-// import { useI18n } from 'vue-i18n';
+
 
 
 const s = defineProps({
-
-    
 
     mustVerifyEmail: {
         type: Boolean,
@@ -21,9 +18,8 @@ const s = defineProps({
     },
 });
 
-// console.log(s.auth);
 const page = usePage()
-console.log(page.props.value.auth.user);
+
 const user = computed(() => page.props.value.auth.user)
 
 
@@ -59,12 +55,6 @@ const form = useForm({
 
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
-
-            <!-- <div>
-    <p>Logged in as: {{ user.name }}</p>
-    <p>Role: {{ userRole }}</p>
-    他の情報の表示
-  </div> -->
 
             <div>
                 <InputLabel for="email" :value="$t('Email')" />

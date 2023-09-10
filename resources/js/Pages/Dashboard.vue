@@ -2,18 +2,14 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head} from '@inertiajs/inertia-vue3';
 import { usePage } from '@inertiajs/inertia-vue3';
-// import FlashMessage from '@/Components/FlashMessage.vue';
-// import { onMounted } from 'vue';
 
 const props = defineProps({
     auth: Object,
     admin: Boolean,
 })
 
-// onMounted(() => {
     const page = usePage()
-  console.log(page.props.value);
-// })
+
 </script>
 
 <template>

@@ -17,26 +17,11 @@ class ProfileController extends Controller
     /**
      * Display the user's profile form.
      */
-
-    // public function index(){
-
-    //     $user = auth()->user();
-
-    //     dd($user);
-        
-    //     return Inertia::render('Profile.Index');
-    // }
-
-
-
     public function edit(Request $request): Response
     {  
-
         return Inertia::render('Profile/Edit', [
-            
             'mustVerifyEmail' => $request->user() instanceof MustVerifyEmail,
             'status' => session('status'),
-
         ]);
     }
 
@@ -54,8 +39,6 @@ class ProfileController extends Controller
         }
 
         $request->user()->save();
-
-        dd($request);
 
         return Redirect::route('profile.edit');
     }

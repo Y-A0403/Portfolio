@@ -1,19 +1,10 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link } from '@inertiajs/inertia-vue3';
-// import FlashMessage from '@/Components/FlashMessage.vue'
-// import { ref } from 'vue'
-// import { Inertia } from '@inertiajs/inertia';
 
 defineProps({
   records: Array
 })
-
-// const search = ref('')
-
-// const searchProdacts = () => {
-//   Inertia.get(route('managements.index',{search: search.value }))
-// }
 
 </script>
 
@@ -31,14 +22,6 @@ defineProps({
                     <div class="p-6 text-gray-900">
                       <section class="text-gray-600 body-font">
                         <div class="container px-5 py-8 mx-auto">
-                          <!-- <FlashMessage /> -->
-                          <!-- <div class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto">
-                            <div>
-                              <input type="text" name="search" v-model="search">
-                              <button class="bg-blue-300 text-white py-2 px-2" @click="searchProdacts">検索</button>
-                              </div>
-                            <Link as="button" :href="route('managements.create')" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">製品登録</Link>
-                          </div> -->
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                             <template v-if="records.length > 0" >
                               <p class="text-red-500 text-center py-4">
@@ -67,12 +50,7 @@ defineProps({
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.customer }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.order_by }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.deadline }}</td>
-                                  <!-- <td class="border-b-2 border-gray-200 px-4 py-3">
-                                  <span v-if="prodact.is_selling === 1">未完成</span>
-                                  <span v-if="prodact.is_selling === 0">完成 出荷待ち</span>  
-                                  </td> -->
                                 </tr>
-                                
                               </tbody>
                             </table>
                           </template>
