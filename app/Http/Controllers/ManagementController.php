@@ -23,7 +23,6 @@ class ManagementController extends Controller
         return Inertia::render('Managements/Index',[
             'prodacts' => $prodacts
         ]);
-        
     }
 
     /**

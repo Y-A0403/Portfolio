@@ -15,14 +15,14 @@ class Management extends Model
     protected $table = 'prodacts';
 
     protected $fillable = [
-                            'name',
-                            'customer',
-                            'order_by',
-                            'deadline',
-                            'manager',
-                            'is_selling',
-                            'memo',
-                          ];
+        'name',
+        'customer',
+        'order_by',
+        'deadline',
+        'manager',
+        'is_selling',
+        'memo',
+    ];
     
     public function scopeSearchProdacts($query, $input = null)
     {

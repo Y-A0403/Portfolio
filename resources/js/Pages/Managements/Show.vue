@@ -16,11 +16,11 @@ const deleteManagement = id => {
 </script>
 
 <template>
-    <Head title="製品詳細" />
+    <Head title="注文詳細" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">製品詳細</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">注文詳細</h2>
         </template>
 
         <div class="py-12">
@@ -99,7 +99,7 @@ const deleteManagement = id => {
                               </div>
 
                               <div class="p-2 w-full">
-                                <Link as="button" :href="route('managements.edit',{management: prodact.id})" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">製品編集</Link>
+                                <Link as="button" :href="route('managements.edit',{management: prodact.id})" class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">注文編集</Link>
                               </div>
 
                               <div class="mt-10 p-2 w-full">

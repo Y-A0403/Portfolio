@@ -47,6 +47,12 @@ const showingNavigationDropdown = ref(false);
                                 <NavLink v-if="page.props.value.auth.admin " :href="route('managements.index')" :active="route().current('managements.index')">
                                     注残管理
                                 </NavLink>
+                                <NavLink v-if="page.props.value.auth.admin " :href="route('items.index')" :active="route().current('items.index')">
+                                    製品管理
+                                </NavLink>
+                                <NavLink v-if="page.props.value.auth.admin " :href="route('customers.index')" :active="route().current('customers.index')">
+                                    顧客管理
+                                </NavLink>
                                 <NavLink :href="route('notices.index')" :active="route().current('notices.index')">
                                     お知らせ
                                 </NavLink>
@@ -135,6 +141,12 @@ const showingNavigationDropdown = ref(false);
                         </ResponsiveNavLink>
                         <ResponsiveNavLink v-if="page.props.value.auth.admin" :href="route('managements.index')" :active="route().current('managements.index')">
                             注残管理
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink v-if="page.props.value.auth.admin" :href="route('items.index')" :active="route().current('items.index')">
+                            製品管理
+                        </ResponsiveNavLink>
+                        <ResponsiveNavLink v-if="page.props.value.auth.admin" :href="route('customers.index')" :active="route().current('customers.index')">
+                            顧客管理
                         </ResponsiveNavLink>
                         <ResponsiveNavLink :href="route('notices.index')" :active="route().current('notices.index')">
                             お知らせ

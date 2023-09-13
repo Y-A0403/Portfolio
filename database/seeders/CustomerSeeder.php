@@ -13,16 +13,6 @@ class CustomerSeeder extends Seeder
      */
     public function run(): void
     {
-        DB::table('customers')->insert([
-            [
-                'customername' => 'A社'
-            ],
-            [
-                'customername' => 'B社'
-            ],
-            [
-                'customername' => 'C社'
-            ],
-        ]);
+    //    
     }
 }

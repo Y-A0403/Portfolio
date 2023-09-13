@@ -23,11 +23,11 @@ const storeProdact = () => {
 </script>
 
 <template>
-    <Head title="製品登録" />
+    <Head title="注文登録" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">製品登録</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">注文登録</h2>
         </template>
 
         <div class="py-12">
@@ -84,7 +84,7 @@ const storeProdact = () => {
                               </div>
 
                               <div class="p-2 w-full">
-                                <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">製品登録</button>
+                                <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">登録</button>
                               </div>
                              
                             </div>
