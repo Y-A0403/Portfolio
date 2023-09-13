@@ -165,7 +165,12 @@ return [
       'postcode' => '郵便番号', 
       'address' => '住所', 
       'birthday' => '誕生日', 
-      'gender' => '性別'
+      'gender' => '性別',
+      'customer' => '客先名',
+      'order_by' => '注文数',
+      'deadline' => '納期日',
+      'manager' => '担当者'
+
     ],
 
 ];
