@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Prodact;
 
 class Customer extends Model
 {
@@ -26,5 +27,10 @@ class Customer extends Model
             ->orwhere('address','like',$input.'%');
           }
         }
+    }
+
+    public function prodacts()
+    {
+        return $this->hasMany(Prodact::class);
     }
 }
