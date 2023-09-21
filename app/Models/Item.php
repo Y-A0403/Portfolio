@@ -4,13 +4,15 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Prodact;
 
 class Item extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'itemname'
+        'itemname',
+        'memo',
     ];
 
     public function scopeSearchItems($query,$input = null)
@@ -21,5 +23,10 @@ class Item extends Model
                 return $query->where('itemname','like',$input.'%');
             }
         }
+    }
+
+    public function prodacts()
+    {
+        return $this->hasMany(Prodact::class);
     }
 }
