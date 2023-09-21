@@ -5,11 +5,13 @@ import { reactive } from 'vue'
 import { Inertia } from '@inertiajs/inertia'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 defineProps({
-  errors: Object
+  errors: Object,
+  items: Array,
+  customers: Array,
 })
 const form = reactive({
-  name: null,
-  customer: null,
+  item_id: null,
+  customer_id: null,
   order_by: null,
   deadline: null,
   manager: null,
@@ -43,15 +45,23 @@ const storeProdact = () => {
                             <div class="flex flex-wrap -m-2">
                               <div class="p-2 w-full">
                                 <div class="relative">
-                                  <label for="name" class="leading-7 text-sm text-gray-600">製品名</label>
-                                  <input type="text" id="name" name="name" v-model="form.name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                  <label for="item" class="leading-7 text-sm text-gray-600">製品名</label>
+                                  <select name="item" v-model="form.item_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <option v-for="item in items" :value="item.id" :key="item.id">
+                                    {{ item.itemname }}
+                                    </option>
+                                  </select>
                                 </div>
                               </div>
                               
                               <div class="p-2 w-full">
                                 <div class="relative">
                                   <label for="customer" class="leading-7 text-sm text-gray-600">客先名</label>
-                                  <input type="text" id="customer" name="customer" v-model="form.customer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                  <select name="customer" v-model="form.customer_id" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                    <option v-for="customer in customers" :value="customer.id" :key="customer.id">
+                                    {{ customer.customername }}
+                                    </option>
+                                  </select>
                                 </div>
                               </div>
                     

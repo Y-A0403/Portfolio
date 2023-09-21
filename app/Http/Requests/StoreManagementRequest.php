@@ -21,8 +21,8 @@ class StoreManagementRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required'],
-            'customer' => ['required'],
+            'item_id' => ['required'],
+            'customer_id' => ['required'],
             'order_by' => ['required'],
             'deadline' => ['required'],
             'manager' => ['required'],

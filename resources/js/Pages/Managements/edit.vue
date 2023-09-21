@@ -6,18 +6,19 @@ import { Inertia } from '@inertiajs/inertia'
 import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 const props = defineProps({
   prodact: Object,
-  errors: Object
+  errors: Object,
+  items: Array,
+  customers: Array,
 })
 const form = reactive({
   id: props.prodact.id,
-  name: props.prodact.name,
-  customer: props.prodact.customer,
+  name: props.prodact.itemname,
+  customer: props.prodact.customername,
   order_by: props.prodact.order_by,
   deadline: props.prodact.deadline,
   manager: props.prodact.manager,
   memo: props.prodact.memo,
-  is_selling: props.prodact.is_selling
-
+  is_selling: props.prodact.is_selling,
 })
 // ルート側で指定してるメソッドと合わせるためputにする
 const updateProdact = id => {
@@ -26,11 +27,11 @@ const updateProdact = id => {
 </script>
 
 <template>
-    <Head title="製品編集" />
+    <Head title="注文編集" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">製品編集</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">注文編集</h2>
         </template>
 
         <div class="py-12">
@@ -47,14 +48,18 @@ const updateProdact = id => {
                               <div class="p-2 w-full">
                                 <div class="relative">
                                   <label for="name" class="leading-7 text-sm text-gray-600">製品名</label>
-                                  <input type="text" id="name" name="name" v-model="form.name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                  <div id="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                  {{ prodact. itemname }}
+                                  </div>
                                 </div>
                               </div>
                               
                               <div class="p-2 w-full">
                                 <div class="relative">
                                   <label for="customer" class="leading-7 text-sm text-gray-600">客先名</label>
-                                  <input type="text" id="customer" name="customer" v-model="form.customer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                  <div  id="customer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                                  {{ prodact.customername }}
+                                  </div>
                                 </div>
                               </div>
                     

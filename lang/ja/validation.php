@@ -166,11 +166,14 @@ return [
       'address' => '住所', 
       'birthday' => '誕生日', 
       'gender' => '性別',
-      'customer' => '客先名',
+      'customer' => '顧客名',
       'order_by' => '注文数',
       'deadline' => '納期日',
-      'manager' => '担当者'
-
+      'manager' => '担当者',
+      'customername' => '顧客名',
+      'itemname' => '製品名',
+      'item_id' => '製品名',
+      'customer_id' => '顧客名',
     ],
 
 ];

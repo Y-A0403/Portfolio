@@ -9,6 +9,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Order;
 
 class ProdactController extends Controller
 {
@@ -17,8 +18,8 @@ class ProdactController extends Controller
      */
     public function index(Request $request)
     {
-        $prodacts = Prodact::searchProdacts($request->search)
-        ->select('id','name','order_by','deadline','is_selling')
+        $prodacts = Order::searchOrders($request->search)
+        ->select('id','itemname','order_by','deadline','is_selling')
         ->paginate(20);
 
         return Inertia::render('Prodacts/Index',
@@ -27,7 +28,7 @@ class ProdactController extends Controller
         ]);
     }
 
-    public function show(Prodact $prodact)
+    public function show(Order $prodact)
     {
         return Inertia::render('Prodacts/Show',
         [
