@@ -54,21 +54,17 @@ class CustomerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Customer $customer)
     {
-        $data = Customer::where('id',$id)->first();
-
-        return Inertia::render('Customers/Show',['customer' => $data]);
+        return Inertia::render('Customers/Show',['customer' => $customer]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Customer $customer)
     {
-        $data = Customer::where('id',$id)->first();
-
-        return Inertia::render('Customers/Edit',['customer' => $data]);
+        return Inertia::render('Customers/Edit',['customer' => $customer]);
     }
 
     /**
