@@ -52,21 +52,17 @@ class ItemController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Item $item)
     {
-        $data = Item::where('id',$id)->first();
-
-        return Inertia::render('Items/Show',['item' => $data]);
+        return Inertia::render('Items/Show',['item' => $item]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Item $item)
     {
-        $data = Item::where('id',$id)->first();
-
-        return Inertia::render('Items/Edit',['item' => $data]);
+        return Inertia::render('Items/Edit',['item' => $item]);
     }
 
     /**
