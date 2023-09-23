@@ -69,29 +69,19 @@ class ManagementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Order $management)
     {
-        $data = Order::where('id',$id)->first();
-
-        return Inertia::render('Managements/Show',['prodact' => $data]);
+        return Inertia::render('Managements/Show',['prodact' => $management]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Order $management)
     {
-        $data = Order::where('id',$id)->first();
-
-        $items = Item::select('id','itemname')->get();
-
-        $customers = Customer::select('id','customername')->get();
-
         return Inertia::render('Managements/Edit',
         [
-            'prodact' => $data,
-            'items' => $items,
-            'customers' => $customers,
+            'prodact' => $management,
         ]);
     }
 

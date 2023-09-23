@@ -7,8 +7,6 @@ import BreezeValidationErrors from '@/Components/ValidationErrors.vue'
 const props = defineProps({
   prodact: Object,
   errors: Object,
-  items: Array,
-  customers: Array,
 })
 const form = reactive({
   id: props.prodact.id,

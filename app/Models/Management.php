@@ -24,18 +24,6 @@ class Management extends Model
         'is_selling',
         'memo',
     ];
-    
-    public function scopeSearchOrders($query, $input = null)
-    {
-        if(!empty($input))
-        {
-            if(Order::where('itemname', 'like', $input .'%')
-            ->exists())
-            {
-                return $query->where('itemname', 'like', $input .'%');
-            }
-        }
-    }
 
     public function item():BelongsTo
     {
