@@ -9,7 +9,7 @@ defineProps({
 
 const deleteManagement = id => {
   Inertia.delete(route('managements.destroy',{management: id}),{
-    onBefore: () => confirm('本当に削除しますか？')
+    onBefore: () => confirm('本当に削除しますか?')
   })
 }
 
@@ -38,7 +38,7 @@ const deleteManagement = id => {
                                 <div class="relative">
                                   <label for="name" class="leading-7 text-sm text-gray-600">製品名</label>
                                   <div id="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                  {{ prodact. name }}
+                                  {{ prodact.itemname }}
                                   </div>
                                   </div>
                               </div>
@@ -47,7 +47,7 @@ const deleteManagement = id => {
                                 <div class="relative">
                                   <label for="customer" class="leading-7 text-sm text-gray-600">客先名</label>
                                   <div  id="customer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                  {{ prodact.customer }}
+                                  {{ prodact.customername }}
                                   </div>
                                   </div>
                               </div>

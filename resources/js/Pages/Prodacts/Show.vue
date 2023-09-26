@@ -22,7 +22,6 @@ defineProps({
                     <div class="p-6 text-gray-900">
                       
                       <section class="text-gray-600 body-font relative">
-                        <form @submit.prevent="storeProdact">
                           <div class="container px-5 py-8 mx-auto">
                           
                           <div class="lg:w-1/2 md:w-2/3 mx-auto">
@@ -31,7 +30,7 @@ defineProps({
                                 <div class="relative">
                                   <label for="name" class="leading-7 text-sm text-gray-600">製品名</label>
                                   <div id="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                  {{ prodact.name }}
+                                  {{ prodact.itemname }}
                                   </div>
                                   </div>
                               </div>
@@ -40,7 +39,7 @@ defineProps({
                                 <div class="relative">
                                   <label for="customer" class="leading-7 text-sm text-gray-600">客先名</label>
                                   <div  id="customer" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
-                                  {{ prodact.customer }}
+                                  {{ prodact.customername }}
                                   </div>
                                   </div>
                               </div>
@@ -90,12 +89,9 @@ defineProps({
                                   </div>
                                 </div>
                               </div>
-
-                             
                             </div>
                           </div>
                         </div>
-                      </form>
                       </section>
                     </div>
                 </div>

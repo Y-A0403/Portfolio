@@ -8,6 +8,10 @@ use App\Models\Management;
 use App\Models\Prodact;
 use Inertia\Inertia;
 use Illuminate\Http\Request;
+use App\Models\Item;
+use App\Models\Customer;
+use App\Models\Order;
+
 
 class ManagementController extends Controller
 {
@@ -16,8 +20,9 @@ class ManagementController extends Controller
      */
     public function index(Request $request)
     {
-        $prodacts = Prodact::searchProdacts($request->search)
-        ->select('id','name','order_by','deadline','is_selling')
+     // items,customers,prodactsテーブルをJOINしたOrderモデルを使う
+        $prodacts = Order::searchOrders($request->search)
+        ->select('id','itemname','order_by','deadline','is_selling')
         ->paginate(20);
 
         return Inertia::render('Managements/Index',[
@@ -30,7 +35,14 @@ class ManagementController extends Controller
      */
     public function create()
     {
-        return Inertia::render('Managements/Create');
+        $items = Item::select('id','itemname')->get();
+
+        $customers = Customer::select('id','customername')->get();
+        
+        return Inertia::render('Managements/Create',[
+            'items' => $items,
+            'customers' => $customers
+        ]);
     }
 
     /**
@@ -39,13 +51,13 @@ class ManagementController extends Controller
     public function store(StoreManagementRequest $request)
     {
         Prodact::create([
-            'name' => $request->name,
-            'customer' => $request->customer,
+            'item_id' => $request->item_id,
+            'customer_id' => $request->customer_id,
             'order_by' => $request->order_by,
             'deadline' => $request->deadline,
             'manager' => $request->manager,
             'memo'    => $request->memo,
-                       ]);
+            ]);
 
     return to_route('managements.index')
         ->with([
@@ -57,21 +69,20 @@ class ManagementController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(Order $management)
     {
-        $data = Prodact::where('id',$id)->first();
-
-        return Inertia::render('Managements/Show',['prodact' => $data]);
+        return Inertia::render('Managements/Show',['prodact' => $management]);
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit($id)
+    public function edit(Order $management)
     {
-        $data = Prodact::where('id',$id)->first();
-
-        return Inertia::render('Managements/edit',['prodact' => $data]);
+        return Inertia::render('Managements/Edit',
+        [
+            'prodact' => $management,
+        ]);
     }
 
     /**
@@ -80,8 +91,6 @@ class ManagementController extends Controller
     // Modelsでprodactsテーブルに接続するようにしてるから繋がる
     public function update(UpdateManagementRequest $request, Management $management)
     {
-        $management->name = $request->name;
-        $management->customer = $request->customer;
         $management->order_by = $request->order_by;
         $management->deadline = $request->deadline;
         $management->manager = $request->manager;

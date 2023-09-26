@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreCustomerRequest;
+use App\Http\Requests\UpdateCustomerRequest;
 use App\Models\Customer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
@@ -27,15 +29,26 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        //
+        return Inertia::render('Customers/Create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreCustomerRequest $request)
     {
-        //
+        Customer::create([
+            'customername' => $request->customername,
+            'tel' => $request->tel,
+            'postcode' => $request->postcode,
+            'address' => $request->address,
+            ]);
+
+        return to_route('customers.index')
+            ->with([
+                'message' => '登録しました。',
+                'status' => 'success'
+                  ]);
     }
 
     /**
@@ -43,7 +56,7 @@ class CustomerController extends Controller
      */
     public function show(Customer $customer)
     {
-        //
+        return Inertia::render('Customers/Show',['customer' => $customer]);
     }
 
     /**
@@ -51,15 +64,25 @@ class CustomerController extends Controller
      */
     public function edit(Customer $customer)
     {
-        //
+        return Inertia::render('Customers/Edit',['customer' => $customer]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Customer $customer)
+    public function update(UpdateCustomerRequest $request, Customer $customer)
     {
-        //
+        $customer->customername = $request->customername;
+        $customer->tel = $request->tel;
+        $customer->postcode = $request->postcode;
+        $customer->address = $request->address;
+        $customer->save();
+
+        return to_route('customers.index')
+    ->with([
+        'message' => '更新しました。',
+        'status' => 'success'
+          ]);
     }
 
     /**
@@ -67,6 +90,12 @@ class CustomerController extends Controller
      */
     public function destroy(Customer $customer)
     {
-        //
+        $customer->delete();
+
+        return to_route('customers.index')
+    ->with([
+            'message' => '削除しました。',
+            'status' => 'denger'
+          ]);
     }
 }

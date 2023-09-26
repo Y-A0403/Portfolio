@@ -19,11 +19,11 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             ProdactSeeder::class,
         ]);
-
-        \App\Models\Prodact::Factory(50)->create();
-        \App\Models\Customer::Factory(50)->create();
+        
         \App\Models\Item::Factory(50)->create();
-
+        \App\Models\Customer::Factory(50)->create();
+        \App\Models\Prodact::Factory(50)->create();
+        
         // \App\Models\User::factory(10)->create();
 
         // \App\Models\User::factory()->create([

@@ -12,7 +12,7 @@ defineProps({
 
 const search = ref('')
 
-const searchProdacts = () => {
+const searchOrders = () => {
   Inertia.get(route('managements.index',{search: search.value }))
 }
 
@@ -36,7 +36,7 @@ const searchProdacts = () => {
                           <div class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto">
                             <div>
                               <input type="text" name="search" v-model="search">
-                              <button class="bg-blue-300 text-white py-2 px-2" @click="searchProdacts">検索</button>
+                              <button class="bg-blue-300 text-white py-2 px-2" @click="searchOrders">検索</button>
                               </div>
                             <Link as="button" :href="route('managements.create')" class="flex ml-auto text-white bg-indigo-500 border-0 py-2 px-6 focus:outline-none hover:bg-indigo-600 rounded">注文登録</Link>
                           </div>
@@ -60,7 +60,7 @@ const searchProdacts = () => {
                                     {{ prodact.id }}
                                     </Link>
                                   </td>
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.name }}</td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.itemname }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.order_by }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.deadline }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">

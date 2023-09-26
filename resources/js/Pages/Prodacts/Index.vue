@@ -1,7 +1,6 @@
 <script setup>
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout.vue';
 import { Head, Link, usePage } from '@inertiajs/inertia-vue3';
-// import FlashMessage from '@/Components/FlashMessage.vue'
 import { ref } from 'vue'
 import { Inertia } from '@inertiajs/inertia';
 import Pagination from '@/Components/Pagination.vue'
@@ -15,7 +14,7 @@ console.log(page.props.value.auth);
 
 const search = ref('')
 
-const searchProdacts = () => {
+const searchOrders = () => {
   Inertia.get(route('prodacts.index',{search: search.value }))
 }
 
@@ -35,14 +34,13 @@ const searchProdacts = () => {
                     <div class="p-6 text-gray-900">
                       <section class="text-gray-600 body-font">
                         <div class="container px-5 py-8 mx-auto">
-                          <!-- <FlashMessage /> -->
                           <div class="flex pl-4 my-4 lg:w-2/3 w-full mx-auto">
                             <div>
                               <input type="text" name="search" v-model="search">
-                              <button class="bg-blue-300 text-white py-2 px-2" @click="searchProdacts">検索</button>
-                              </div>
-                           
+                              <button class="bg-blue-300 text-white py-2 px-2" @click="searchOrders">検索</button>
+                            </div>
                           </div>
+                          
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                             <table class="table-auto w-full text-left whitespace-no-wrap">
                               <thead>
@@ -63,7 +61,7 @@ const searchProdacts = () => {
                                     {{ prodact.id }}
                                     </Link>
                                   </td>
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.name }}</td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.itemname }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.order_by }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ prodact.deadline }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">

@@ -24,7 +24,7 @@ const searchCustomers = () => {
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">顧客管理</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">顧客一覧</h2>
         </template>
 
         <div class="py-12">
@@ -47,9 +47,6 @@ const searchCustomers = () => {
                                 <tr>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">Id</th>
                                   <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">顧客名</th>
-                                  <!-- <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">電話番号</th>
-                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">郵便番号</th>
-                                  <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">住所</th> -->
                                   <th class="w-10 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tr rounded-br"></th>
                                 </tr>
                               </thead>
@@ -57,18 +54,16 @@ const searchCustomers = () => {
                                 <!-- v-forの時は:key=をつける決まり -->
                                 <tr v-for="customer in customers.data" :key="customer.id">
                                   <td class="border-b-2 border-gray-200 px-4 py-3">
-                                    <Link class="text-purple-400" :href="route('customers.index', {customers: customer.id})">
+                                    <Link class="text-purple-400" :href="route('customers.show', {customer: customer.id})">
                                     {{ customer.id }}
                                     </Link>
                                   </td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ customer.customername }}</td>
-                                  
                                 </tr>
-                                
                               </tbody>
+                              
                             </table>
                           </div>
-                         
                         </div>
                         <Pagination class="mt-6" :links="customers.links"></Pagination>
                       </section>
