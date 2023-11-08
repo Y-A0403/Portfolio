@@ -1,0 +1,23 @@
+version: "3.9"
+services:
+  app:
+    build: 
+      context: .
+      dockerfile: ./infra/php/Dockerfile
+
+  web:
+    image: nginx:1.20-alpine
+    ports:
+      - 8080:80
+    volumes:
+      - ./:/var/www/html
+      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
+    working_dir: /var/www/html
+
+  db:
+    build: ./infra/mysql
+    volumes:
+      - db-store:/var/lib/mysql
+
+volumes:
+  db-store:
