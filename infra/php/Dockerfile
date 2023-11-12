@@ -11,3 +11,7 @@ COPY --from=composer:2.2 /usr/bin/composer /usr/bin/composer
 COPY ./ ./
 RUN composer install
 COPY ./infra/php/php.ini /usr/local/etc/php/php.ini
+
+RUN chmod -R 777 storage/logs \
+    && php artisan config:clear \
+    && php artisan cache:clear
