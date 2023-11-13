@@ -15,7 +15,7 @@ class NoticeController extends Controller
         $oneWeekFromNow = Carbon::now()->addWeek();
        
         $records = Prodact::where('is_selling','1')->where('deadline', '<=', $oneWeekFromNow)->get();
-
+        //dd($records);
         return Inertia::render('Notices/Index',[
             'records' => $records
         ]);

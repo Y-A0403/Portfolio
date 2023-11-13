@@ -46,7 +46,7 @@ defineProps({
                                     {{ record.id }}
                                     </Link>
                                   </td>
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.name }}</td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.item }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.customer }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.order_by }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.deadline }}</td>

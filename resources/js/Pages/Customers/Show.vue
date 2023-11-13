@@ -5,13 +5,14 @@ import { Head, Link} from '@inertiajs/inertia-vue3';
 
 defineProps({
   customer: Object
-})
+});
 
 const deleteCustomer = id => {
   Inertia.delete(route('customers.destroy',{customer: id}),{
     onBefore: () =>confirm('本当に削除しますか?')
   })
 }
+
 </script>
 <template>
     <Head title="顧客詳細" />
@@ -65,6 +66,23 @@ const deleteCustomer = id => {
               <div class="p-2 w-full">
               <button @click="deleteCustomer(customer.id) " class="flex mx-auto text-white bg-red-500 border-0 py-2 px-8 focus:outline-none hover:bg-red-600 rounded text-lg">削除</button>
               </div>
+              <GMapMap
+                  :center="{lat: 51.093048, lng: 6.842120}"
+                  :zoom="7"
+                  map-type-id="terrain"
+                  style="width: 500px; height: 300px"
+              >
+                <GMapCluster>
+                  <GMapMarker
+                      :key="index"
+                      v-for="(m, index) in markers"
+                      :position="m.position"
+                      :clickable="true"
+                      :draggable="true"
+                      @click="center=m.position"
+                  />
+                </GMapCluster>
+              </GMapMap>
             </div>
           </div>
         </div>
