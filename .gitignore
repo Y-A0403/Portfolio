@@ -3,12 +3,11 @@
 /public/build
 /public/hot
 /public/storage
-# /storage/*.key
+/storage/*.key
 /vendor
-/storage/debugbar/
-/storage/framework/sessions/
-/storage/framework/views/
-/storage/logs/
+/storage/**
+!/storage/**/
+!/storage/**/.gitkeep
 .env
 .env.backup
 .env.production
