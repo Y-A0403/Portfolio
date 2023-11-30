@@ -9,11 +9,11 @@ defineProps({
 </script>
 
 <template>
-    <Head title="製品詳細" />
+    <Head title="注文詳細" />
 
     <AuthenticatedLayout>
         <template #header>
-            <h2 class="font-semibold text-xl text-gray-800 leading-tight">製品詳細</h2>
+            <h2 class="font-semibold text-xl text-gray-800 leading-tight">注文詳細</h2>
         </template>
 
         <div class="py-12">

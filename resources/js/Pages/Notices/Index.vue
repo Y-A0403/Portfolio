@@ -25,7 +25,7 @@ defineProps({
                           <div class="lg:w-2/3 w-full mx-auto overflow-auto">
                             <template v-if="records.length > 0" >
                               <p class="text-red-500 text-center py-4">
-                                納期日が近いまたは過ぎています。確認してください。
+                                納期日が近いまたは過ぎています。確認してください。。。
                               </p>
                             <table class="table-auto w-full text-left whitespace-no-wrap">
                               <thead>
@@ -46,8 +46,8 @@ defineProps({
                                     {{ record.id }}
                                     </Link>
                                   </td>
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.item }}</td>
-                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.customer }}</td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.itemname }}</td>
+                                  <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.customername }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.order_by }}</td>
                                   <td class="border-b-2 border-gray-200 px-4 py-3">{{ record.deadline }}</td>
                                 </tr>
