@@ -79,7 +79,7 @@ class ManagementController extends Controller
      */
     public function edit(Order $management)
     {
-        return Inertia::render('Managements/Edit',
+        return Inertia::render('Managements/edit',
         [
             'prodact' => $management,
         ]);
