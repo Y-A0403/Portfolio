@@ -1,5 +1,6 @@
 # DMS / 納期管理システム
 
+<img width="1680" alt="スクリーンショット 2023-12-06 10 58 22" src="https://github.com/Y-A0403/Portfolio/assets/138664273/0fdc58b9-ce46-46a1-9a7b-7dd5335fec30">
 
 ## サービス概要
 DMSは、製造業などの大量の製品、注文がある中で管理者や一般の社員が納期を確認しやすくして、納期遅れなどをなくしたいという自身の経験から作りました。是非ご覧になってください。
@@ -13,7 +14,8 @@ http://dms-aws-maron.com/login
 
 パスワード　password1111
 
-内容詳細
+## 内容詳細
+
 ・LaravelとVue.js(JavaScript)を使用したCRUD処理
 
 ・インフラ構成
@@ -25,17 +27,17 @@ http://dms-aws-maron.com/login
 
 ・実際の開発を意識して作業用のブランチを作成してプルリクとマージを実施
 
-バージョン管理
+## バージョン管理
 
 ・Git（GitHub）
 
-環境
+## 環境
 
 ・PHP8.1　・Laravel10.1　・mysql8.0　・Inertia.js(JavaScript)
 
 ・Docker　・DockerCompose　・nginx1.12
 
-機能・画面
+## 機能・画面
 
 ・アカウント、パスワードの登録、編集、削除
 
